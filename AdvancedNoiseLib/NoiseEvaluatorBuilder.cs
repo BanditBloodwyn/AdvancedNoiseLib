@@ -5,13 +5,13 @@ namespace AdvancedNoiseLib
 {
     public class NoiseEvaluatorBuilder
     {
-        private string _settings = "";
+        private string _settingsJson = "";
         private int _seed;
         private bool _useFirstFilterLayerAsMask;
 
-        public NoiseEvaluatorBuilder WithSettings(string settings)
+        public NoiseEvaluatorBuilder WithSettings(string settingsJson)
         {
-            _settings = settings;
+            _settingsJson = settingsJson;
             return this;
         }
 
@@ -27,13 +27,13 @@ namespace AdvancedNoiseLib
             return this;
         }
 
-        public NoiseEvaluator Build()
+        public INoiseEvaluator Build()
         {
-            NoiseSettings settings = string.IsNullOrEmpty(_settings) 
+            NoiseSettings settings = string.IsNullOrEmpty(_settingsJson) 
                 ? new NoiseSettings()
-                : NoiseSettingsParser.Parse(_settings);
+                : NoiseSettingsParser.Parse(_settingsJson);
 
-            NoiseEvaluator evaluator = new NoiseEvaluator(settings, _seed, _useFirstFilterLayerAsMask);
+            INoiseEvaluator evaluator = new NoiseEvaluator(settings, _seed, _useFirstFilterLayerAsMask);
             return evaluator;
         }
     }
