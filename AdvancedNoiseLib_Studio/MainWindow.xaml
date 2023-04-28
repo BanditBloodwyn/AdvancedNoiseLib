@@ -1,0 +1,19 @@
+﻿<Window x:Class="AdvancedNoiseLib_Studio.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AdvancedNoiseLib_Studio"
+        xmlns:controls="clr-namespace:AdvancedNoiseLib_Studio.Controls"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Background="#1e1e1e" WindowState="Maximized">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <controls:SettingsControl Grid.Column="0" x:Name="ctrl_Settings"/>
+        <controls:NoisePreviewControl Grid.Column="1" x:Name="ctrl_Preview"/>
+    </Grid>
+</Window>
