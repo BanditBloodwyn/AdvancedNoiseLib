@@ -21,7 +21,13 @@ namespace AdvancedNoiseLib_Studio
 
         private void GenerateRequested(string settingsJson, int size)
         {
+            DateTime now = DateTime.Now;
+
             Bitmap bitmap = BitmapGenerator.GenerateTexture(settingsJson, size);
+
+            double elapsedTime = (DateTime.Now - now).TotalMilliseconds;
+            lbl_Debug.Content = $"{elapsedTime:F1} ms";
+
             ctrl_Preview.SetTexture(bitmap);
         }
     }

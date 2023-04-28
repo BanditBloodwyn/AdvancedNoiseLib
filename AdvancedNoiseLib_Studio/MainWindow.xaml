@@ -8,12 +8,22 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Background="#1e1e1e" WindowState="Maximized">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="3*"/>
-        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
 
-        <controls:SettingsControl Grid.Column="0" x:Name="ctrl_Settings"/>
-        <controls:NoisePreviewControl Grid.Column="1" x:Name="ctrl_Preview"/>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+
+            <controls:SettingsControl Grid.Column="0" x:Name="ctrl_Settings"/>
+            <controls:NoisePreviewControl Grid.Column="1" x:Name="ctrl_Preview"/>
+        </Grid>
+
+        <Label Grid.Row="1" x:Name="lbl_Debug"
+               Foreground="White"/>
     </Grid>
 </Window>
