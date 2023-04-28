@@ -1,5 +1,4 @@
-﻿using System;
-using AdvancedNoiseLib.Math.Noise;
+﻿using AdvancedNoiseLib.Math.Noise;
 using AdvancedNoiseLib.Settings;
 
 namespace AdvancedNoiseLib
@@ -21,13 +20,9 @@ namespace AdvancedNoiseLib
             _useFirstFilterLayerAsMask = useFirstFilterLayerAsMask;
         }
 
-        public float Evaluate2D(float x, float y)
+        public float Evaluate2D(float x, float y, PerlinNoiseEvaluator perlinNoise)
         {
-            PerlinNoiseEvaluator perlinNoise = new PerlinNoiseEvaluator();
-
-            Random random = new Random();
-
-            return (float)random.NextDouble();
+            return perlinNoise.Evaluate(x, 0, y);
         }
     }
 }

@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Types\" />
     <Folder Include="Settings\" />
   </ItemGroup>
 

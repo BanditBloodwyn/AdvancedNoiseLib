@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AdvancedNoiseLib.Math.Noise;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 
@@ -13,20 +14,26 @@ namespace AdvancedNoiseLib
             _noiseEvaluator = noiseEvaluator;
         }
 
-        public Dictionary<Tuple<int, int>, Color> GenerateNoiseTexture(int size)
+        public Color[,] GenerateNoiseTextureData(int size)
         {
-            Dictionary<Tuple<int, int>, Color> dictionary = new Dictionary<Tuple<int, int>, Color>();
+            Color[,] data = new Color[size, size];
 
-            for (int x = 0; x < size; x++)
+            Random random = new Random();
+            PerlinNoiseEvaluator perlinNoise = new PerlinNoiseEvaluator(random.Next(int.MaxValue));
+
+            for (int x = 0; x < data.GetLength(0); x++)
             {
-                for (int y = 0; y < size; y++)
+                for (int y = 0; y < data.GetLength(1); y++)
                 {
-                    float value = _noiseEvaluator.Evaluate2D(x, y);
+                    float value = (_noiseEvaluator.Evaluate2D(x, y, perlinNoise) + 1) / 2;
                     int grayscale = (int)(value * 255);
-                    dictionary.Add(new Tuple<int, int>(x,y), Color.FromArgb(grayscale, grayscale, grayscale));
+
+                    data[x, y] = Color.FromArgb(grayscale, grayscale, grayscale);
                 }
             }
-            return dictionary;
+
+            return data;
         }
+
     }
 }

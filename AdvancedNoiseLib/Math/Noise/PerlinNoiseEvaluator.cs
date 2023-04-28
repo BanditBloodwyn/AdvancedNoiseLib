@@ -55,11 +55,11 @@ namespace AdvancedNoiseLib.Math.Noise
         #endregion
 
 
-        public float Evaluate(Vector3 point)
+        public float Evaluate(float xPos, float yPos, float zPos)
         {
-            double x = point.X;
-            double y = point.Y;
-            double z = point.Z;
+            double x = xPos;
+            double y = yPos;
+            double z = zPos;
             double n0 = 0, n1 = 0, n2 = 0, n3 = 0;
             double s = (x + y + z) * F3;
             int i = FastFloor(x + s);

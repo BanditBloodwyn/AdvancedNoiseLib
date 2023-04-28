@@ -1,6 +1,4 @@
 ﻿using AdvancedNoiseLib;
-using System;
-using System.Collections.Generic;
 using System.Drawing;
 
 namespace AdvancedNoiseLib_Studio.Helper;
@@ -17,19 +15,22 @@ public static class BitmapGenerator
             .Build();
 
         NoiseTextureGenerator noiseTextureGenerator = new(noiseEvaluator);
-        Dictionary<Tuple<int, int>, Color> noiseTextureDictionary = noiseTextureGenerator.GenerateNoiseTexture(size);
+        Color[,] noiseTextureData = noiseTextureGenerator.GenerateNoiseTextureData(size);
 
-        return GenerateBitmap(noiseTextureDictionary, size);
+        return GenerateBitmap(noiseTextureData, size);
     }
 
-    private static Bitmap GenerateBitmap(Dictionary<Tuple<int, int>, Color> data, int size)
+    private static Bitmap GenerateBitmap(Color[,] noiseTextureData, int size)
     {
         Bitmap bitmap = new(size, size);
-        
-        Console.WriteLine($"create Bitmap. Size = {size}");
 
-        foreach (KeyValuePair<Tuple<int, int>, Color> dataSet in data)
-            bitmap.SetPixel(dataSet.Key.Item1, dataSet.Key.Item2, dataSet.Value);
+        for (int x = 0; x < noiseTextureData.GetLength(0); x++)
+        {
+            for (int y = 0; y < noiseTextureData.GetLength(1); y++)
+            {
+                bitmap.SetPixel(x, y, noiseTextureData[x, y]);
+            }
+        }
 
         return bitmap;
     }
