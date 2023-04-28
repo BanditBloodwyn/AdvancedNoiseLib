@@ -1,6 +1,8 @@
 ﻿using AdvancedNoiseLib.Math.Noise;
 using System;
+using System.Collections.Concurrent;
 using System.Drawing;
+using System.Threading.Tasks;
 
 namespace AdvancedNoiseLib
 {
@@ -34,5 +36,31 @@ namespace AdvancedNoiseLib
             return data;
         }
 
+        public Color[,] GenerateNoiseTextureDataParallel(int size)
+        {
+            Color[,] data = new Color[size, size];
+
+            Random random = new Random();
+            PerlinNoiseEvaluator perlinNoise = new PerlinNoiseEvaluator(random.Next(int.MaxValue));
+
+            int minPartitionSize = System.Math.Max(size / Environment.ProcessorCount, 1);
+            var partitioner = Partitioner.Create(0, size, minPartitionSize);
+
+            Parallel.ForEach(partitioner, range =>
+            {
+                for (int x = range.Item1; x < range.Item2; x++)
+                {
+                    for (int y = 0; y < data.GetLength(1); y++)
+                    {
+                        float value = (_noiseEvaluator.Evaluate2D(x, y, perlinNoise) + 1) / 2;
+                        int grayscale = (int)(value * 255);
+
+                        data[x, y] = Color.FromArgb(grayscale, grayscale, grayscale);
+                    }
+                }
+            });
+
+            return data;
+        }
     }
 }

@@ -15,7 +15,7 @@ public static class BitmapGenerator
             .Build();
 
         NoiseTextureGenerator noiseTextureGenerator = new(noiseEvaluator);
-        Color[,] noiseTextureData = noiseTextureGenerator.GenerateNoiseTextureData(size);
+        Color[,] noiseTextureData = noiseTextureGenerator.GenerateNoiseTextureDataParallel(size);
 
         return GenerateBitmap(noiseTextureData, size);
     }
