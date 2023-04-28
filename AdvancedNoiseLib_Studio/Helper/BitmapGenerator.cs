@@ -17,17 +17,19 @@ public static class BitmapGenerator
             .Build();
 
         NoiseTextureGenerator noiseTextureGenerator = new(noiseEvaluator);
-        Dictionary<Tuple<int, int>, Color> noiseTextureDictionary = noiseTextureGenerator.GenerateNoiseTexture(2048);
+        Dictionary<Tuple<int, int>, Color> noiseTextureDictionary = noiseTextureGenerator.GenerateNoiseTexture(size);
 
         return GenerateBitmap(noiseTextureDictionary, size);
     }
 
     private static Bitmap GenerateBitmap(Dictionary<Tuple<int, int>, Color> data, int size)
     {
-        Bitmap bitmap = new(size,  size);
+        Bitmap bitmap = new(size, size);
+        
+        Console.WriteLine($"create Bitmap. Size = {size}");
 
         foreach (KeyValuePair<Tuple<int, int>, Color> dataSet in data)
-            bitmap.SetPixel(0, dataSet.Key.Item2, dataSet.Value);
+            bitmap.SetPixel(dataSet.Key.Item1, dataSet.Key.Item2, dataSet.Value);
 
         return bitmap;
     }

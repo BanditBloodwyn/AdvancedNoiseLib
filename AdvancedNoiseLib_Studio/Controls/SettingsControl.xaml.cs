@@ -15,7 +15,7 @@ namespace AdvancedNoiseLib_Studio.Controls
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            GenerateRequested.Invoke(GenerateSettingsJson(), 10);
+            GenerateRequested.Invoke(GenerateSettingsJson(), (int)sld_size.Value);
         }
 
         private string GenerateSettingsJson()

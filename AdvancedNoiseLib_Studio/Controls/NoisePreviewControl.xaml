@@ -8,10 +8,10 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="20"/>
+                <RowDefinition Height="50"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-        <Image Grid.Row="1" x:Name="img_Preview"/>
+        <Image Grid.Row="1" x:Name="img_Preview" RenderOptions.BitmapScalingMode="NearestNeighbor"/>
     </Grid>
 </UserControl>

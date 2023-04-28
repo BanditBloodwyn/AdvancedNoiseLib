@@ -1,4 +1,5 @@
-﻿using AdvancedNoiseLib.Math.Noise;
+﻿using System;
+using AdvancedNoiseLib.Math.Noise;
 using AdvancedNoiseLib.Settings;
 
 namespace AdvancedNoiseLib
@@ -23,7 +24,10 @@ namespace AdvancedNoiseLib
         public float Evaluate2D(float x, float y)
         {
             PerlinNoiseEvaluator perlinNoise = new PerlinNoiseEvaluator();
-            return 0;
+
+            Random random = new Random();
+
+            return (float)random.NextDouble();
         }
     }
 }
