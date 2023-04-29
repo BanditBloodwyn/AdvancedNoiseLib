@@ -33,7 +33,7 @@ namespace AdvancedNoiseLib
                 ? new NoiseSettings()
                 : NoiseSettingsParser.Parse(_settingsJson);
 
-            INoiseEvaluator evaluator = new NoiseEvaluator(settings, _seed, _useFirstFilterLayerAsMask);
+            INoiseEvaluator evaluator = new NoiseEvaluator(settings, _useFirstFilterLayerAsMask);
             return evaluator;
         }
     }

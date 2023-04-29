@@ -22,30 +22,36 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <TextBox Grid.Column="0" x:Name="tb_CenterX" Margin="10,0"/>
-                    <TextBox Grid.Column="1" x:Name="tb_CenterY" Margin="10,0"/>
-                    <TextBox Grid.Column="2" x:Name="tb_CenterZ" Margin="10,0"/>
+                    <TextBox Grid.Column="0" x:Name="tb_CenterX" Margin="10,0" Text="0"/>
+                    <TextBox Grid.Column="1" x:Name="tb_CenterY" Margin="10,0" Text="0"/>
+                    <TextBox Grid.Column="2" x:Name="tb_CenterZ" Margin="10,0" Text="0"/>
                 </Grid>
 
                 <Label Content="Minimum" Foreground="White"/>
-                <Slider x:Name="sld_Minimum" Margin="10, 0,10,10" Minimum="0" Maximum="100"/>
+                <Slider x:Name="sld_Minimum" Margin="10, 0,10,10" Minimum="0" Maximum="100" 
+                        AutoToolTipPlacement="TopLeft"/>
 
                 <Label Content="Maximum" Foreground="White"/>
-                <Slider x:Name="sld_Maximum" Margin="10, 0,10,10" Minimum="0" Maximum="100"/>
+                <Slider x:Name="sld_Maximum" Margin="10, 0,10,10" Minimum="0" Maximum="100" 
+                        Value="100" AutoToolTipPlacement="TopLeft"/>
 
                 <Separator/>
 
                 <Label Content="Strength" Foreground="White"/>
-                <Slider x:Name="sld_Strength" Margin="10, 0,10,10" Minimum="0" Maximum="10"/>
+                <Slider x:Name="sld_Strength" Margin="10, 0,10,10" Minimum="0" Maximum="10" 
+                        AutoToolTipPlacement="TopLeft"/>
 
                 <Label Content="Base Roughness" Foreground="White"/>
-                <Slider x:Name="sld_BaseRoughness" Margin="10, 0,10,10" Minimum="0" Maximum="10"/>
+                <Slider x:Name="sld_BaseRoughness" Margin="10, 0,10,10" Minimum="0" Maximum="0.01" 
+                        AutoToolTipPlacement="TopLeft"/>
 
-                <Label Content="Base Roughness" Foreground="White"/>
-                <Slider x:Name="sld_Roughness" Margin="10, 0,10,10" Minimum="0" Maximum="10"/>
+                <Label Content="Roughness" Foreground="White"/>
+                <Slider x:Name="sld_Roughness" Margin="10, 0,10,10" Minimum="0" Maximum="1" 
+                        AutoToolTipPlacement="TopLeft"/>
 
                 <Label Content="Persistance" Foreground="White"/>
-                <Slider x:Name="sld_Persistance" Margin="10, 0,10,10" Minimum="0" Maximum="10"/>
+                <Slider x:Name="sld_Persistance" Margin="10, 0,10,10" Minimum="0" Maximum="10" 
+                        AutoToolTipPlacement="TopLeft"/>
             </StackPanel>
         </Expander>
     </Border>

@@ -9,20 +9,33 @@ namespace AdvancedNoiseLib
     /// </summary>
     public class NoiseEvaluator : INoiseEvaluator
     {
-        private NoiseSettings _settings;
-        private int _seed;
+        private readonly NoiseSettings _settings;
         private bool _useFirstFilterLayerAsMask;
 
-        internal NoiseEvaluator(NoiseSettings settings, int seed, bool useFirstFilterLayerAsMask)
+        internal NoiseEvaluator(NoiseSettings settings, bool useFirstFilterLayerAsMask)
         {
             _settings = settings;
-            _seed = seed;
             _useFirstFilterLayerAsMask = useFirstFilterLayerAsMask;
         }
 
         public float Evaluate2D(float x, float y, PerlinNoiseEvaluator perlinNoise)
         {
-            return perlinNoise.Evaluate(x, 0, y);
+            float firstLayerValue = 0;
+            float elevation = 0;
+
+            if (_settings.NoiseFilters.Length > 0)
+            {
+                firstLayerValue = _settings.NoiseFilters[0].Evaluate(x, y, perlinNoise);
+                elevation = firstLayerValue;
+            }
+
+            if (_settings.NoiseFilters.Length == 1)
+                return elevation;
+
+            for (int i = 1; i < _settings.NoiseFilters.Length; i++)
+                elevation += _settings.NoiseFilters[i].Evaluate(x, y, perlinNoise) * firstLayerValue;
+
+            return elevation;
         }
     }
 }

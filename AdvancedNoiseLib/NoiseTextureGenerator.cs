@@ -36,9 +36,9 @@ namespace AdvancedNoiseLib
             return data;
         }
 
-        public Color[,] GenerateNoiseTextureDataParallel(int size)
+        public float[,] GenerateNoiseTextureDataParallel(int size)
         {
-            Color[,] data = new Color[size, size];
+            float[,] data = new float[size, size];
 
             Random random = new Random();
             PerlinNoiseEvaluator perlinNoise = new PerlinNoiseEvaluator(random.Next(int.MaxValue));
@@ -53,9 +53,8 @@ namespace AdvancedNoiseLib
                     for (int y = 0; y < data.GetLength(1); y++)
                     {
                         float value = (_noiseEvaluator.Evaluate2D(x, y, perlinNoise) + 1) / 2;
-                        int grayscale = (int)(value * 255);
 
-                        data[x, y] = Color.FromArgb(grayscale, grayscale, grayscale);
+                        data[x, y] = value;
                     }
                 }
             });
