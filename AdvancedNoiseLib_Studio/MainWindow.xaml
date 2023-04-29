@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AdvancedNoiseLib_Studio"
         xmlns:controls="clr-namespace:AdvancedNoiseLib_Studio.Controls"
+        xmlns:settings="clr-namespace:AdvancedNoiseLib_Studio.Controls.Settings"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Background="#1e1e1e" WindowState="Maximized">
     <Grid>
@@ -19,7 +20,7 @@
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
 
-            <controls:SettingsControl Grid.Column="0" x:Name="ctrl_Settings"/>
+            <settings:SettingsControl Grid.Column="0" x:Name="ctrl_Settings"/>
             <controls:NoisePreviewControl Grid.Column="1" x:Name="ctrl_Preview"/>
         </Grid>
 

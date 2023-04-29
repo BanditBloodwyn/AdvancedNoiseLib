@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="AdvancedNoiseLib_Studio.Controls.Settings.NoiseFilterControls.RigidNoiseFilterControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AdvancedNoiseLib_Studio.Controls.Settings.NoiseFilterControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="550" d:DesignWidth="800">
+    <Border BorderBrush="Gray" BorderThickness="1" Margin="0,0,0,10">
+        <Expander>
+            <Expander.Header>
+                <Label Content="Rigid Noise Filter" Foreground="White" FontWeight="Bold" FontSize="14"/>
+            </Expander.Header>
+            <StackPanel>
+                <Label Content="Number of layers" Foreground="White"/>
+                <Slider x:Name="sld_NumberOfLayers" Margin="10, 0,10,10"  Minimum="1" Maximum="8"/>
+
+                <Label Content="Center" Foreground="White"/>
+                <Grid Margin="0, 0,0,10" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Grid.Column="0" x:Name="tb_CenterX" Margin="10,0"/>
+                    <TextBox Grid.Column="1" x:Name="tb_CenterY" Margin="10,0"/>
+                    <TextBox Grid.Column="2" x:Name="tb_CenterZ" Margin="10,0"/>
+                </Grid>
+
+                <Label Content="Minimum" Foreground="White"/>
+                <Slider x:Name="sld_Minimum" Margin="10, 0,10,10" Minimum="0" Maximum="100"/>
+
+                <Label Content="Maximum" Foreground="White"/>
+                <Slider x:Name="sld_Maximum" Margin="10, 0,10,10" Minimum="0" Maximum="100"/>
+
+                <Separator/>
+
+                <Label Content="Strength" Foreground="White"/>
+                <Slider x:Name="sld_Strength" Margin="10, 0,10,10" Minimum="0" Maximum="10"/>
+
+                <Label Content="Base Roughness" Foreground="White"/>
+                <Slider x:Name="sld_BaseRoughness" Margin="10, 0,10,10" Minimum="0" Maximum="10"/>
+
+                <Label Content="Base Roughness" Foreground="White"/>
+                <Slider x:Name="sld_Roughness" Margin="10, 0,10,10" Minimum="0" Maximum="10"/>
+
+                <Label Content="Persistance" Foreground="White"/>
+                <Slider x:Name="sld_Persistance" Margin="10, 0,10,10" Minimum="0" Maximum="10"/>
+
+                <Label Content="Weight Multiplier" Foreground="White"/>
+                <Slider x:Name="sld_WeightMultiplier" Margin="10, 0,10,10" Minimum="0" Maximum="10"/>
+            </StackPanel>
+        </Expander>
+    </Border>
+</UserControl>
