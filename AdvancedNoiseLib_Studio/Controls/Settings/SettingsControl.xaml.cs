@@ -1,8 +1,7 @@
-﻿using System;
-using System.Text.Json.Serialization.Metadata;
-using System.Windows;
-using AdvancedNoiseLib_Studio.Controls.Settings.NoiseFilterControls;
+﻿using AdvancedNoiseLib_Studio.Controls.Settings.NoiseFilterControls;
 using AdvancedNoiseLib_Studio.ViewModels;
+using System;
+using System.Windows;
 
 namespace AdvancedNoiseLib_Studio.Controls.Settings
 {
@@ -17,15 +16,15 @@ namespace AdvancedNoiseLib_Studio.Controls.Settings
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string? json = GenerateSettingsJson();
+            string json = GenerateSettingsJson();
 
-            if(string.IsNullOrEmpty(json))
+            if (string.IsNullOrEmpty(json))
                 return;
 
-            GenerateRequested?.Invoke(json, (int)sld_size.Value);
+            GenerateRequested?.Invoke(json, (int)se_Size.SliderValue);
         }
 
-        private string? GenerateSettingsJson()
+        private string GenerateSettingsJson()
         {
             string json = "[\n";
             foreach (UIElement uiElement in pnl_NoiseFilters.Children)

@@ -4,9 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:viewModels="clr-namespace:AdvancedNoiseLib_Studio.ViewModels"
+             xmlns:elements="clr-namespace:AdvancedNoiseLib_Studio.Controls.Elements"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="300" BorderBrush="Gray" BorderThickness="0, 0, 2, 0">
-  
+
     <UserControl.DataContext>
         <viewModels:SettingsControlViewModel/>
     </UserControl.DataContext>
@@ -18,18 +19,10 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Orientation="Vertical">
-            <Grid Margin="0,0,0,10">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="70"/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" 
-                       Text="{Binding ElementName=sld_size, Path=Value, StringFormat='Size:   {0:F0}'}"
-                       Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                <Slider Grid.Column="1" x:Name="sld_size" 
-                        Margin="30, 0" VerticalAlignment="Center"
-                        Minimum="1" Maximum="1000" AutoToolTipPlacement="TopLeft" Value="200"/>
-            </Grid>
+
+            <elements:SliderElement x:Name="se_Size" Title="Size" 
+                                    SliderMinimum="1" SliderMaximum="2000"
+                                    ContentStringFormat="0.00"/>
 
             <Separator/>
 
