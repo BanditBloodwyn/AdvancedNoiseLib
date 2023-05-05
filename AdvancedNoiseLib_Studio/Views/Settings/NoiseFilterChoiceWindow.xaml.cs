@@ -1,8 +1,8 @@
-﻿using AdvancedNoiseLib_Studio.Controls.Settings.NoiseFilterControls;
-using System;
+﻿using System;
 using System.Windows;
+using AdvancedNoiseLib_Studio.Views.Settings.NoiseFilterControls;
 
-namespace AdvancedNoiseLib_Studio.Controls.Settings
+namespace AdvancedNoiseLib_Studio.Views.Settings
 {
     /// <summary>
     /// Interaktionslogik für NoiseFilterChoiceWindow.xaml

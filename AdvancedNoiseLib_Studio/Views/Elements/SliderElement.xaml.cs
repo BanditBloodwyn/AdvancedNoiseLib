@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace AdvancedNoiseLib_Studio.Controls.Elements
+namespace AdvancedNoiseLib_Studio.Views.Elements
 {
     /// <summary>
     /// Interaktionslogik für SliderElement.xaml

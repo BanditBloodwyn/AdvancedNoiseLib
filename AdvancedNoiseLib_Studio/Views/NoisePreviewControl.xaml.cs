@@ -5,7 +5,7 @@ using System.Windows.Controls;
 using System.Windows.Interop;
 using System.Windows.Media.Imaging;
 
-namespace AdvancedNoiseLib_Studio.Controls
+namespace AdvancedNoiseLib_Studio.Views
 {
     public partial class NoisePreviewControl : UserControl
     {

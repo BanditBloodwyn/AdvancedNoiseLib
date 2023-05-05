@@ -1,9 +1,9 @@
-﻿using AdvancedNoiseLib_Studio.Controls.Settings.NoiseFilterControls;
-using AdvancedNoiseLib_Studio.ViewModels;
-using System;
+﻿using System;
 using System.Windows;
+using AdvancedNoiseLib_Studio.ViewModels;
+using AdvancedNoiseLib_Studio.Views.Settings.NoiseFilterControls;
 
-namespace AdvancedNoiseLib_Studio.Controls.Settings
+namespace AdvancedNoiseLib_Studio.Views.Settings
 {
     public partial class SettingsControl
     {

@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Controls\Settings\NoiseFilterControls\RigidNoiseFilterControl.xaml.cs">
+    <Compile Update="Views\Settings\NoiseFilterControls\RigidNoiseFilterControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

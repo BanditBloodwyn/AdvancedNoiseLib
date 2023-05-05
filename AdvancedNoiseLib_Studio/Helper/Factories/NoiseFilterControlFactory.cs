@@ -1,5 +1,5 @@
-﻿using AdvancedNoiseLib_Studio.Controls.Settings.NoiseFilterControls;
-using System;
+﻿using System;
+using AdvancedNoiseLib_Studio.Views.Settings.NoiseFilterControls;
 
 namespace AdvancedNoiseLib_Studio.Helper.Factories;
 

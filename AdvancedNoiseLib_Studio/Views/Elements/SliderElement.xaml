@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="AdvancedNoiseLib_Studio.Views.Elements.SliderElement"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:elements="clr-namespace:AdvancedNoiseLib_Studio.Views.Elements"
+             mc:Ignorable="d" 
+             d:DesignHeight="50" d:DesignWidth="300" Margin="0,0,0,5">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Label x:Name="lbl_Title" x:FieldModifier="private"
+               BorderBrush="Gray" BorderThickness="0,0.5,0,0"
+               FontSize="16"
+               Content="{Binding Path=Title, RelativeSource={RelativeSource AncestorType=elements:SliderElement}, FallbackValue='[ Title ]'}" Foreground="White"
+               Grid.Row="0" VerticalAlignment="Center" Margin="10,0" Padding="0"/>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock x:Name="lbl_Value" x:FieldModifier="private"
+                       Foreground="White"
+                       Text="{Binding ElementName=sld_Value, Path=Value, StringFormat='0.000'}"
+                       Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0"/>
+
+            <Slider x:Name="sld_Value" x:FieldModifier="private"
+                Grid.Column="1" VerticalAlignment="Center" Margin="10,0"
+                Minimum="{Binding Path=SliderMinimum, RelativeSource={RelativeSource AncestorType=elements:SliderElement}}"
+                Maximum="{Binding Path=SliderMaximum, RelativeSource={RelativeSource AncestorType=elements:SliderElement}}"/>
+        </Grid>
+    </Grid>
+</UserControl>

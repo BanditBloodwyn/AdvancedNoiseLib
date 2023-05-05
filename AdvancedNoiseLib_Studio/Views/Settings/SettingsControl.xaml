@@ -1,10 +1,10 @@
-﻿<UserControl x:Class="AdvancedNoiseLib_Studio.Controls.Settings.SettingsControl"
+﻿<UserControl x:Class="AdvancedNoiseLib_Studio.Views.Settings.SettingsControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:viewModels="clr-namespace:AdvancedNoiseLib_Studio.ViewModels"
-             xmlns:elements="clr-namespace:AdvancedNoiseLib_Studio.Controls.Elements"
+             xmlns:elements="clr-namespace:AdvancedNoiseLib_Studio.Views.Elements"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="300" BorderBrush="Gray" BorderThickness="0, 0, 2, 0">
 

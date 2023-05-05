@@ -1,7 +1,7 @@
-﻿using AdvancedNoiseLib_Studio.Controls.Settings.NoiseFilterControls;
-using AdvancedNoiseLib_Studio.Helper.Factories;
+﻿using AdvancedNoiseLib_Studio.Helper.Factories;
 using System.Windows;
-using AdvancedNoiseLib_Studio.Controls.Settings;
+using AdvancedNoiseLib_Studio.Views.Settings;
+using AdvancedNoiseLib_Studio.Views.Settings.NoiseFilterControls;
 
 namespace AdvancedNoiseLib_Studio.Models;
 
