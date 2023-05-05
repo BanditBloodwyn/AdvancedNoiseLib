@@ -1,9 +1,7 @@
-﻿using AdvancedNoiseLib.Math.Noise;
-
-namespace AdvancedNoiseLib
+﻿namespace AdvancedNoiseLib
 {
     public interface INoiseEvaluator
     {
-        public float Evaluate2D(float x, float y, PerlinNoiseEvaluator perlinNoise);
+        public float Evaluate2D(float x, float y);
     }
 }

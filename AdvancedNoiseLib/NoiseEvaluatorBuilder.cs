@@ -1,4 +1,5 @@
-﻿using AdvancedNoiseLib.Settings;
+﻿using AdvancedNoiseLib.Math.Noise;
+using AdvancedNoiseLib.Settings;
 using AdvancedNoiseLib.Utilities;
 
 namespace AdvancedNoiseLib
@@ -32,8 +33,9 @@ namespace AdvancedNoiseLib
             NoiseSettings settings = string.IsNullOrEmpty(_settingsJson) 
                 ? new NoiseSettings()
                 : NoiseSettingsParser.Parse(_settingsJson);
+            PerlinNoiseEvaluator perlinNoise = new PerlinNoiseEvaluator(_seed);
 
-            INoiseEvaluator evaluator = new NoiseEvaluator(settings, _useFirstFilterLayerAsMask);
+            INoiseEvaluator evaluator = new NoiseEvaluator(settings, perlinNoise, _useFirstFilterLayerAsMask);
             return evaluator;
         }
     }
