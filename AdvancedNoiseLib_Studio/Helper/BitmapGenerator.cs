@@ -30,7 +30,7 @@ public static class BitmapGenerator
         {
             for (int y = 0; y < noiseTextureData.GetLength(1); y++)
             {
-                bitmap.SetPixel(x, y, colors[x, y]);
+                bitmap.SetPixel(x, noiseTextureData.GetLength(1)-y-1, colors[x, y]);
             }
         }
 
@@ -40,51 +40,16 @@ public static class BitmapGenerator
     private static Color[,] ProcessData(float[,] noiseTextureData)
     {
         Color[,] data = new Color[noiseTextureData.GetLength(0), noiseTextureData.GetLength(1)];
-        float maximum = GetMaximum(noiseTextureData);
-        float minimum = GetMinimum(noiseTextureData);
+        ColorGradientSampler sampler = new ColorGradientSampler(new[] { Color.GreenYellow, Color.Red });
 
         for (int x = 0; x < noiseTextureData.GetLength(0); x++)
         {
             for (int y = 0; y < noiseTextureData.GetLength(1); y++)
             {
-                float g = ((noiseTextureData[x, y] - minimum) / maximum) * 255;
-                int grayscale = (int)g;
-                data[x, y] = Color.FromArgb(grayscale, grayscale, grayscale);
+                data[x, y] = sampler.Sample(noiseTextureData[x, y]);
             }
         }
 
         return data;
-    }
-
-    private static float GetMinimum(float[,] noiseTextureData)
-    {
-        float minVal = float.MaxValue;
-
-        for (int x = 0; x < noiseTextureData.GetLength(0); x++)
-        {
-            for (int y = 0; y < noiseTextureData.GetLength(1); y++)
-            {
-                if (noiseTextureData[x, y] < minVal)
-                    minVal = noiseTextureData[x, y];
-            }
-        }
-
-        return minVal;
-    }
-
-    private static float GetMaximum(float[,] noiseTextureData)
-    {
-        float maxVal = float.MinValue;
-
-        for (int x = 0; x < noiseTextureData.GetLength(0); x++)
-        {
-            for (int y = 0; y < noiseTextureData.GetLength(1); y++)
-            {
-                if (noiseTextureData[x, y] > maxVal)
-                    maxVal = noiseTextureData[x, y];
-            }
-        }
-
-        return maxVal;
     }
 }

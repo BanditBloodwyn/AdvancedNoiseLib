@@ -26,7 +26,7 @@ namespace AdvancedNoiseLib
                 {
                     for (int y = 0; y < data.GetLength(1); y++)
                     {
-                        float value = (_noiseEvaluator.Evaluate2D(x, y) + 1) / 2;
+                        float value = _noiseEvaluator.Evaluate2D(x, y);
 
                         data[x, y] = value;
                     }

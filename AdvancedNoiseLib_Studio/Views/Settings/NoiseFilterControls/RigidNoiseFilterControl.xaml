@@ -49,10 +49,10 @@
                                         SliderMinimum="0" SliderMaximum="30"
                                         ContentStringFormat="0.00"/>
                 <elements:SliderElement x:Name="sld_BaseRoughness" Title="Base Roughness" 
-                                        SliderMinimum="0" SliderMaximum="0.01"
+                                        SliderMinimum="0" SliderMaximum="0.05"
                                         ContentStringFormat="0.000"/>
                 <elements:SliderElement x:Name="sld_Roughness" Title="Roughness" 
-                                        SliderMinimum="0" SliderMaximum="1"
+                                        SliderMinimum="0" SliderMaximum="10"
                                         ContentStringFormat="0.00"/>
                 <elements:SliderElement x:Name="sld_Persistance" Title="Persistance" 
                                         SliderMinimum="0" SliderMaximum="10"

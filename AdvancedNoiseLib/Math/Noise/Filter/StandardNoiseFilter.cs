@@ -36,11 +36,11 @@
                 ? noiseValue
                 : Minimum;
 
-            noiseValue -= Minimum;
-
             noiseValue = noiseValue <= Maximum
                 ? noiseValue
                 : Maximum;
+
+            noiseValue -= Minimum;
 
             return noiseValue;
         }
